@@ -1,0 +1,92 @@
+<div class = "jumbotron">
+
+  <h1 class = "alert-warning text-center"> Formulaire d'ajout</h1>
+  <div class = "row">
+    <div class = "col-md-12">
+
+
+      <form (ngSubmit) = "addPersonnel(newPersonnel)">
+        <div class = "form-group">
+          <label for = "nom">Nom et prenom</label>
+          <input type = "text"
+                 class = "form-control"
+                 id = "nom"
+                 name = "nom"
+                 placeholder = "Nom et prenom"
+                 [(ngModel)] = "newPersonnel.nom">
+        </div>
+
+        <div class = "form-group">
+          <label for = "cin">CIN</label>
+          <input type = "text"
+                 class = "form-control"
+                 name = "cin"
+                 placeholder = "Cin"
+                 id = "cin"
+                 [(ngModel)] = "newPersonnel.cin">
+        </div>
+
+        <div class = "form-group">
+          <label for = "adresse">Adresse</label>
+          <input type = "text"
+                 class = "form-control"
+                 name = "adresse"
+                 id = "adresse"
+                 placeholder = "adresse"
+                 [(ngModel)] = "newPersonnel.adresse">
+        </div>
+
+        <div class = "form-group">
+          <label for = "email">email</label>
+          <input type = "email"
+                 class = "form-control"
+                 name = "email"
+                 id = "email"
+                 placeholder = "Email"
+                 [(ngModel)] = "newPersonnel.email">
+        </div>
+
+        <button type = "submit" class = "btn btn-primary">Ajouter</button>
+      </form>
+
+
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <h1 class = "alert-warning text-center"> List des personnels</h1>
+
+  <div class = "row">
+    <div class = "col-md-12">
+      <table class = "table table-bordered table-hover" style="border-width: 15px">
+        <th>CIN</th>
+        <th>Nom et Prenom</th>
+        <th>Adresse</th>
+        <th>Email</th>
+        <th>Action</th>
+        <tr *ngFor = "let p of personnels">
+          <td>{{p.cin}}</td>
+          <td>{{p.nom}}</td>
+          <td>{{p.adresse}}</td>
+          <td>{{p.email}}</td>
+          <td>
+            <button class = "btn btn-danger" (click) = "deletePersonnel(p)">supprimer</button>
+          </td>
+
+        </tr>
+      </table>
+
+
+      <!--<ul class = "list-group" *ngFor = "let p of personnels">-->
+      <!--<li class = "list-group-item">-->
+      <!--<button class = "btn btn-danger" (click) = "deletePersonnel(p)">x</button>-->
+      <!--{{ p.cin }} - {{p.nom}}- {{p.adresse}} - {{p.email}}-->
+      <!--</li>-->
+      <!--</ul>-->
+    </div>
+
+  </div>
+  <br>
+
+</div>
